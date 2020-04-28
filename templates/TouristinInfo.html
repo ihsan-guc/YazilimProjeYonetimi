@@ -1,0 +1,57 @@
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sorting</title>
+        <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+  <div class="d-flex align-items-center flex-column justify-content-center h-100 mx-auto">
+    <div class="row">
+        <form id="predictForm">
+          <div class="form-group ">
+            <textarea class="form-control form-control-lg"  cols="65" rows="2" placeholder="Yorumunuzu Giriniz Ve Beni mutlu Ediniz" id="predict" name="predict"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-outline-warning btn-lg btn-block">Gönder</button>
+          </div>
+        </form>
+        <img src="" id="image" width="100px" class="ml-4" height="100px">
+    </div>
+  </div>
+  <script>
+    $("#predictForm").submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: "http://localhost:4500/nodeTouristinInfo",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "predict": $("#predict").val(),
+            }),
+            type: "POST",
+            dataType: "json",
+            success: function(msq) {
+              if(msq[0]===1){
+                alert("Müze gidin")
+              }
+              if(msq[0]===2){
+                alert("Akvaryu Gezin")
+                }
+                if(msq[0]===3){
+                alert("Galery Gidin")
+                }
+            }
+        })
+    })
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sorting</title>
+        <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="OkulKutuphanesi.html"> Okul Kutuphanesi <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="OkulArabaSecme.html"> Okul Araba Şeçme <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="Titanik.html"> Titanik <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="SmartClassroom.html"> Smart Classroom <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="NewspaperShelves.html"> Newspaper Shelves <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="SortingHat.html"> Sorting Hat <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  <div class="d-flex align-items-center flex-column justify-content-center h-100 mx-auto">
+    <div class="row">
+        <form id="predictForm">
+          <div class="form-group ">
+            <textarea class="form-control form-control-lg"  cols="65" rows="2" placeholder="Yorumunuzu Giriniz Ve Manteşi Bulalım" id="predict" name="predict"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-outline-warning btn-lg btn-block">Gönder</button>
+          </div>
+        </form>
+    </div>
+  </div>
+  <script>
+    $("#predictForm").submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            url: "http://localhost:4500/nodeNewspaperShelves",
+            contentType: "application/json",
+            data: JSON.stringify({
+                "predict": $("#predict").val(),
+            }),
+            type: "POST",
+            dataType: "json",
+            success: function(msq) {
+              if(msq[0]===1){
+                alert("Atığınız Manset Ekonmi ile ilgili")
+              }
+              if(msq[0]===2){
+                alert("Atığınız Manset Sağlık ile ilgili")
+                }
+            }
+        })
+    })
+</script>
+    
+</body>
+</html>
