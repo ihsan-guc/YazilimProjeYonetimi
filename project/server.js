@@ -50,4 +50,14 @@ app.post('/nodeTouristinInfo', (req, res)=>{
   })
 })
 
+app.post('/nodeMakeMeHappy', (req, res)=>{
+  console.log(req.body.predict)
+  axios.post('http://localhost:5000/MakeMeHappyPredict', {predict: req.body.predict}).then(data=>{
+    res.send(data.data)
+    console.log(data)
+  }).catch(err=>{
+    console.log(err)
+  })
+})
+
 app.listen(4500, () => { console.log("server is up and runing") })

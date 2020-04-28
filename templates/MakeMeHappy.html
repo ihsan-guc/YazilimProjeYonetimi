@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 <body>
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -52,7 +52,7 @@
     <div class="row">
         <form id="predictForm">
           <div class="form-group ">
-            <textarea class="form-control form-control-lg"  cols="65" rows="2" placeholder="Yorumunuzu Giriniz Ve Manteşi Bulalım" id="predict" name="predict"></textarea>
+            <textarea class="form-control form-control-lg"  cols="65" rows="2" placeholder="Yorumunuzu Giriniz Ve Beni mutlu Ediniz" id="predict" name="predict"></textarea>
           </div>
           <div class="form-group">
             <button class="btn btn-outline-warning btn-lg btn-block">Gönder</button>
@@ -64,7 +64,7 @@
     $("#predictForm").submit(function(event) {
         event.preventDefault();
         $.ajax({
-            url: "http://localhost:4500/nodeNewspaperShelves",
+            url: "http://localhost:4500/nodeMakeMeHappy",
             contentType: "application/json",
             data: JSON.stringify({
                 "predict": $("#predict").val(),
@@ -72,11 +72,11 @@
             type: "POST",
             dataType: "json",
             success: function(msq) {
-              if(msq[0]===1){
-                alert("Atığınız Manset Ekonmi ile ilgili")
+              if(msq[0]===0){
+                alert("Ben üzüldüm şimdi")
               }
-              if(msq[0]===2){
-                alert("Atığınız Manset Sağlık ile ilgili")
+              if(msq[0]===1){
+                alert("Ben Mutluyum Şimdi")
                 }
             }
         })

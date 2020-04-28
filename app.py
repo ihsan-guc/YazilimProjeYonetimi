@@ -32,6 +32,12 @@ vectTouristinInfo = CountVectorizer(ngram_range=(1,2), vocabulary = TouristinInf
 CORS(app, resources={r"/*": {"origins": "*"}})
 TouristinInfoModel = pickle.load(open('TouristinInfoModel.pkl', 'rb'))
 
+MakeMeHappyVocabulary = joblib.load('MakeMeHappyVocabulary.pkl') 
+vectMakeMeHappy = CountVectorizer(ngram_range=(1,2), vocabulary = MakeMeHappyVocabulary)
+app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
+MakeMeHappyModel = pickle.load(open('MakeMeHappyModel.pkl', 'rb'))
+
 @app.route("/",methods=['GET', 'POST'])
 def Home():
     return render_template("Home.htm")
@@ -59,6 +65,14 @@ def NewspaperShelves():
 @app.route("/SortingHat.html")
 def SortingHat():
     return render_template("SortingHat.html")
+
+@app.route("/MakeMeHappy.html")
+def MakeMeHappy():
+    return render_template("MakeMeHappy.html")
+
+@app.route("/TouristinInfo.html")
+def TouristinInfo():
+    return render_template("TouristinInfo.html")
 
 @app.route("/predict", methods = ['POST'])
 def predict():
@@ -143,5 +157,16 @@ def TouristinInfoPredict():
     print(predictionValue)
     output = predictionValue
     return  output
+
+@app.route("/MakeMeHappyPredict", methods = ['POST'])
+def MakeMeHappyPredict():
+    int_features = [request.json['predict']]
+    prediction = MakeMeHappyModel.predict(vectMakeMeHappy.transform(int_features))
+    predictionValue = str(prediction)
+    print(predictionValue)
+    output = predictionValue
+    return  output
+
+
 if __name__ == "__main__":
     app.run(debug = True)
