@@ -16,13 +16,6 @@ y = onehotencoder.fit_transform(y).toarray()
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state = 0)
 
-from sklearn.preprocessing import MinMaxScaler
-scaler = MinMaxScaler()
-X_train_scale = scaler.fit_transform(X_train)
-X_test_scale = scaler.transform(X_test)
-y_train_scale = scaler.fit_transform(y_train) 
-y_test_scale = scaler.fit_transform(y_test) 
-
 from sklearn.tree import DecisionTreeRegressor
 regressor = DecisionTreeRegressor(random_state = 0)
 regressor.fit(X_train, y_train)
