@@ -8,11 +8,6 @@ column = ['Cümle']
 df = pd.read_csv('TouristinInfo.csv',encoding = 'utf-8',sep = '"')
 df.columns = column
 df.info()
-#Veri setindeki Türkçe Dolgu kelimlerinin kaldırılması 
-def remove_stopwords(df_fon):
-    stopwords = open('turkce-stop-words','r').read().split()
-    df_fon['stopwords_removed'] = list(map(lambda doc:
-        [word for word in doc if word not in stopwords],df_fon['yorum']))
         
 # 1 Müze 2 Balıklar 3 Araba
 df['Info'] = 1
