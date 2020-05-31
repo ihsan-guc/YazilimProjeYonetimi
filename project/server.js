@@ -11,7 +11,8 @@ app.use(logger("dev"))
 const session=require("express-session");
 
 app.post('/nodepredict', (req, res)=>{
-  console.log(req.body.predict)
+   var {predict} = req.body;
+  console.log(predict);
   axios.post('http://localhost:5000/SmartClassroom', {predict: req.body.predict}).then(data=>{
     res.send(data.data)
     console.log(data)
@@ -21,7 +22,8 @@ app.post('/nodepredict', (req, res)=>{
 })
 
 app.post('/nodeNewspaperShelves', (req, res)=>{
-  console.log(req.body.predict)
+  var {predict} = req.body;
+  console.log(predict);
   axios.post('http://localhost:5000/NewspaperShelvesPredict', {predict: req.body.predict}).then(data=>{
     res.send(data.data)
     console.log(data)
@@ -31,7 +33,8 @@ app.post('/nodeNewspaperShelves', (req, res)=>{
 })
 
 app.post('/nodeSortingHat', (req, res)=>{
-  console.log(req.body.predict)
+   var {predict} = req.body;
+  console.log(predict);
   axios.post('http://localhost:5000/SortingHatPredict', {predict: req.body.predict}).then(data=>{
     res.send(data.data)
     console.log(data)
@@ -41,7 +44,8 @@ app.post('/nodeSortingHat', (req, res)=>{
 })
 
 app.post('/nodeTouristinInfo', (req, res)=>{
-  console.log(req.body.predict)
+  var {predict} = req.body;
+  console.log(predict);
   axios.post('http://localhost:5000/TouristinInfoPredict', {predict: req.body.predict}).then(data=>{
     res.send(data.data)
     console.log(data)
@@ -51,7 +55,8 @@ app.post('/nodeTouristinInfo', (req, res)=>{
 })
 
 app.post('/nodeMakeMeHappy', (req, res)=>{
-  console.log(req.body.predict)
+  var {predict} = req.body;
+  console.log(predict);
   axios.post('http://localhost:5000/MakeMeHappyPredict', {predict: req.body.predict}).then(data=>{
     res.send(data.data)
     console.log(data)
