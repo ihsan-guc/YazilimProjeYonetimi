@@ -4,3 +4,5 @@ Aşağıdaki kaynaktan 8 tane örnek seçilerek bir bir platformdan düzenlenmi�
 (https://machinelearningforkids.co.uk/#!/worksheets)
 * Text verisini işlemek için kullanılan kaynak (https://github.com/merveyapnaz/Sentiment-Analysist).
 * Sayısal verileri işlemek için kullanılan örnek(https://github.com/EngincanV).
+
+
