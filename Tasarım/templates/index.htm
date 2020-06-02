@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+    <title>Tasarım</title>
+
+</head>
+
+<body>
+    <div class="container mt-2">
+        <div class="alert alert-success container text-center">
+            <p id="TextDeger" style="margin: 0;padding:0">
+                {{ prediction_text }}
+            </p>
+        </div>
+    </div>
+    <div class="container mt-2">
+        <div class="row" style="height: 250px;">
+            <div class="col-md-3 mt-2">
+                <button class="btn btn-success w-100 h-100" data-toggle="modal" data-target="#OkulKutuphanesi">
+                    Okul Kütüphanesi
+                </button>
+            </div>
+            <div class="col-md-3 mt-2">
+                <button class="btn btn-success w-100 h-100" data-toggle="modal" data-target="#OkulAracSecme">
+                    Okul Araç Seçme
+                </button>
+            </div>
+            <div class="col-md-3 mt-2">
+                <button class="btn btn-success w-100 h-100" data-toggle="modal" data-target="#Titanik">
+                    Titanik
+                </button>
+            </div>
+            <div class="col-md-3 mt-2">
+                <button type="button" class="btn btn-primary w-100 h-100" data-toggle="modal"
+                    data-target="#BeniMutluEt">
+                    Beni Mutlu Et
+                </button>
+            </div>
+        </div>
+        <div class="row" style="height: 250px;">
+            <div class="col-md-3 mt-2">
+                <button class="btn btn-success w-100 h-100" data-toggle="modal" data-target="#SmartClassRoom">
+                    Akıllı Sınıf
+                </button>
+            </div>
+            <div class="col-md-3 mt-2">
+                <button class="btn btn-success w-100 h-100" data-toggle="modal" data-target="#SortingHat">
+                    Seçmen Şapka
+                </button>
+            </div>
+            <div class="col-md-3 mt-2">
+                <button class="btn btn-success w-100 h-100" data-toggle="modal" data-target="#NewspaperShelves">
+                    Gazete Manşeti Bulma
+                </button>
+            </div>
+            <div class="col-md-3 mt-2">
+                <button class="btn btn-success w-100 h-100" data-toggle="modal" data-target="#TouristinInfo">
+                    Gezilecek Yer Önermek Button.
+                </button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="modal fade" id="OkulKutuphanesi" tabindex="-1" role="dialog" aria-labelledby="OkulKutuphanesiLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="text-center">Hangi Kitap Okumak İstersin</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="deneme" class="content-body text-center">
+                            <div class="pt-3 centered carousel-inner">
+                                <form action="{{ url_for('OkulKutuphanesiPredict') }}" method="post">
+                                    <div class="form-group">
+                                        <label class="control-label">Sayfa</label>
+                                        <input class="form-control" type="text" name="Sayfa" required="required"
+                                            placeholder="Sayfa...." />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Satır</label>
+                                        <input class="form-control" type="text" name="Satır" required="required"
+                                            placeholder="Satır...." />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Resim Sayisi</label>
+                                        <input class="form-control" type="text" name="Resim Sayisi" required="required"
+                                            placeholder="Resim Sayisi...." />
+                                    </div>
+                                    <br><br>
+                                    <div style="float: right;">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Predict</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="OkulAracSecme" tabindex="-1" role="dialog" aria-labelledby="AracSecmeLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="AracSecmeLabel">Hangi Araç ile Yolculuk Yapacaksınız Tahmini.</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="container pt-3 centered carousel-inner">
+                        <form action="{{ url_for('OkulAracSecme') }}" method="post">
+                            <div class="form-group">
+                                <label class="control-label">Kardeş Sayısı:</label>
+                                <input class="form-control" type="text" id="Kardes_sayisi" name="Kardeş Sayısı:"
+                                    required="required" placeholder="Kardes Sayisi" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Yaş</label>
+                                <input class="form-control" id="Yas" type="text" name="Yaş:" required="required"
+                                    placeholder="Yas" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Yol</label>
+                                <input class="form-control" id="Yol" type="text" name="Yol:" required="required"
+                                    placeholder="Yol..." />
+                            </div>
+                            <div style="float:right;">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Test</button>
+                            </div>
+                            <br><br>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="Titanik" tabindex="-1" role="dialog" aria-labelledby="TitanikLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="text-center mt-1">Titanikte Hayatta Kalma Tahmini Yapacaksın.</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="container pt-3 centered carousel-inner">
+                        <div id="deneme" class="content-body text-center">
+                            <div class="centered carousel-inner">
+                                <form action="{{ url_for('predictTitanik') }}" method="post">
+                                    <div class="container">
+                                        <div class="form-group">
+                                            <label class="control-label">Bilet Sinifi: </label><br>
+                                            <select name="Bilet_Sinifi" class="form-control">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Cinsiyet : </label><br>
+                                            <select name="Cinsiyet" class="form-control">
+                                                <option value="0">Female</option>
+                                                <option value="1">Male</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Yaş</label>
+                                            <input class="form-control" type="text" name="Yaş:" required="required"
+                                                placeholder="Yaş...." />
+                                        </div>
+                                        <div class="form-group>
+                                        <label class=" control-label">Kardeş Sayısı:</label>
+                                            <input class="form-control" type="text" name="Kardeş Sayısı:"
+                                                required="required" placeholder="Çocuk Sayisi...." />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Çocuk Sayısı:</label>
+                                            <input class="form-control" type="text" name="Çocuk Sayısı:"
+                                                required="required" placeholder="Çocuk Sayisi...." />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Ücret</label>
+                                            <input class="form-control" type="text" name="Ücret" required="required"
+                                                placeholder="Ücret......" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Cinsiyet : </label><br>
+                                            <select name="Bilet" class="form-control">
+                                                <option value="0">Cherbourg</option>
+                                                <option value="1">Queenstown</option>
+                                                <option value="2">Southampton</option>
+                                            </select>
+                                        </div>
+                                        <div style="float:right;">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Test</button>
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div>
+            <div class="modal fade" id="BeniMutluEt" tabindex="-1" role="dialog" aria-labelledby="BeniMutluEtLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="BeniMutluEtLabel">Yorum Yazarak Beni Mutlu Et</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="predictBeniMutluEt">
+                                <div class="form-group ">
+                                    <textarea class="form-control form-control-lg" cols="65" rows="2"
+                                        placeholder="Yorumunuzu Giriniz Ve Beni mutlu Ediniz" id="predict"
+                                        name="predict"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="modal-footer">
+                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Test</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="modal fade" id="SmartClassRoom" tabindex="-1" role="dialog"
+                aria-labelledby="SmartClassRoomEtLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="SmartClassRoomLabel">Sınıfta Fanı ve Lamba İşlemleri için Bilgi
+                                Girin</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="predictSmartClassRoom">
+                                <div class="form-group ">
+                                    <textarea class="form-control form-control-lg" cols="65" rows="2"
+                                        placeholder="Sınıftaki İstekleri Yazınız" id="predict"
+                                        name="predict"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="modal-footer">
+                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Test</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="modal fade" id="SortingHat" tabindex="-1" role="dialog" aria-labelledby="SortingHatLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="SortingHatLabel">Kişisel Bilgi Girin. Grup Belirlensin.</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="predictSortingHat">
+                                <div class="form-group ">
+                                    <textarea class="form-control form-control-lg" cols="65" rows="2"
+                                        placeholder="Kişisel Bilgilerinizi Girin" id="predict"
+                                        name="predict"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="modal-footer">
+                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Test</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="modal fade" id="NewspaperShelves" tabindex="-1" role="dialog"
+                aria-labelledby="NewspaperShelvesLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="NewspaperShelvesLabel">Gazete Manteş Bilgilerini Girin.</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="predictNewspaperShelves">
+                                <div class="form-group ">
+                                    <textarea class="form-control form-control-lg" cols="65" rows="2"
+                                        placeholder="Gazete Manteş Girin" id="predict" name="predict"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="modal-footer">
+                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Test</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="modal fade" id="TouristinInfo" tabindex="-1" role="dialog" aria-labelledby="TouristinInfoLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="TouristinInfoLabel">Gezmek istediğiniz yerin bilgilerini Girin.
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="predictTouristinInfo">
+                                <div class="form-group ">
+                                    <textarea class="form-control form-control-lg" cols="65" rows="2"
+                                        placeholder="Gezmek istediğiniz bilgileri girin." id="predict"
+                                        name="predict"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <div class="modal-footer">
+                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Test</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-copyright text-center py-3">
+            <p class="text-center mt-2">
+                ©2020 C# FixedBugs. All contents are copyright of their authors.
+            </p>
+        </div>
+        <script>
+            $("#predictBeniMutluEt").submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "http://localhost:4500/nodeMakeMeHappy",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "predict": $("#predict").val(),
+                    }),
+                    type: "POST",
+                    dataType: "json",
+                    success: function (msq) {
+                        if (msq[0] === 0) {
+                            $('#TextDeger').text("Ben üzüldüm şimdi")
+                            $('#BeniMutluEt').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 1) {
+                            $('#TextDeger').text("Ben Mutluyum Şimdi")
+                            $('#BeniMutluEt').modal('hide')
+                            $('#predict').val("")
+                        }
+                    }
+                })
+            })
+
+            $("#predictSmartClassRoom").submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "http://localhost:4500/nodepredict",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "predict": $("#predict").val(),
+                    }),
+                    type: "POST",
+                    dataType: "json",
+                    success: function (msq) {
+                        if (msq[0] === 1) {
+                            $('#TextDeger').text("Fanı Açın")
+                            $('#SmartClassRoom').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 2) {
+                            $('#TextDeger').text("Fanı Kapat")
+                            $('#SmartClassRoom').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 3) {
+                            $('#TextDeger').text("Lambayı Açın")
+                            $('#SmartClassRoom').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 4) {
+                            $('#TextDeger').text("Lambayı Kapatın")
+                            $('#SmartClassRoom').modal('hide')
+                            $('#predict').val("")
+                        }
+                    }
+                })
+            })
+
+            $("#predictSortingHat").submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "http://localhost:4500/nodeSortingHat",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "predict": $("#predict").val(),
+                    }),
+                    type: "POST",
+                    dataType: "json",
+                    success: function (msq) {
+                        if (msq[0] === 0) {
+                            $('#TextDeger').text("Gryffindor Seçildiniz.")
+                            $('#SortingHat').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 1) {
+                            $('#TextDeger').text("Slytherin Seçildiniz.")
+                            $('#SortingHat').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 2) {
+                            $('#TextDeger').text("Hufflepuff Seçildiniz.")
+                            $('#SortingHat').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 3) {
+                            $('#TextDeger').text("Ravenclaw Seçildiniz.")
+                            $('#SortingHat').modal('hide')
+                            $('#predict').val("")
+                        }
+                    }
+                })
+            })
+
+            $("#predictNewspaperShelves").submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "http://localhost:4500/nodeNewspaperShelves",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "predict": $("#predict").val(),
+                    }),
+                    type: "POST",
+                    dataType: "json",
+                    success: function (msq) {
+                        if (msq[0] === 1) {
+                            $('#TextDeger').text("Atığınız Manset Ekonmi ile ilgili")
+                            $('#NewspaperShelves').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 2) {
+                            $('#TextDeger').text("Atığınız Manset Sağlık ile ilgili")
+                            $('#NewspaperShelves').modal('hide')
+                            $('#predict').val("")
+                        }
+                    }
+                })
+            })
+
+            $("#predictTouristinInfo").submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: "http://localhost:4500/nodeTouristinInfo",
+                    contentType: "application/json",
+                    data: JSON.stringify({
+                        "predict": $("#predict").val(),
+                    }),
+                    type: "POST",
+                    dataType: "json",
+                    success: function (msq) {
+                        if (msq[0] === 1) {
+                            $('#TextDeger').text("Müze gidebilirisiniz.")
+                            $('#TouristinInfo').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 2) {
+                            $('#TextDeger').text("Akvaryuma gidebilirisiniz.")
+                            $('#TouristinInfo').modal('hide')
+                            $('#predict').val("")
+                        }
+                        if (msq[0] === 3) {
+                            $('#TextDeger').text("Galery gidebilirisiniz.")
+                            $('#TouristinInfo').modal('hide')
+                            $('#predict').val("")
+                        }
+                    }
+                })
+            })
+        </script>
+</body>
+
+</html>
