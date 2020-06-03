@@ -1,4 +1,4 @@
-import numpy as np
+﻿import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
@@ -40,42 +40,10 @@ MakeMeHappyModel = pickle.load(open('MakeMeHappyModel.pkl', 'rb'))
 
 @app.route("/",methods=['GET', 'POST'])
 def Home():
-    return render_template("Home.htm")
+    return render_template("index.htm")
 
-@app.route("/OkulArabaSecme.html")
-def OkulAraba():
-    return render_template("OkulArabaSecme.html")
-
-@app.route("/OkulKutuphanesi.html")
-def OkulKutuphanesi():
-    return render_template("OkulKutuphanesi.html")
-
-@app.route("/Titanik.html")
-def Titanik():
-    return render_template("Titanik.html")
-
-@app.route("/SmartClassroom.html")
-def smartClassroom():
-    return render_template("SmartClassroom.html")
-
-@app.route("/NewspaperShelves.html")
-def NewspaperShelves():
-    return render_template("NewspaperShelves.html")
-
-@app.route("/SortingHat.html")
-def SortingHat():
-    return render_template("SortingHat.html")
-
-@app.route("/MakeMeHappy.html")
-def MakeMeHappy():
-    return render_template("MakeMeHappy.html")
-
-@app.route("/TouristinInfo.html")
-def TouristinInfo():
-    return render_template("TouristinInfo.html")
-
-@app.route("/predict", methods = ['POST'])
-def predict():
+@app.route("/OkulAracSecme", methods = ['POST'])
+def OkulAracSecme():
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
     prediction = AracSecmeModel.predict(final_features)
@@ -87,7 +55,7 @@ def predict():
         output = "Bisiklet ile";    
     if str(prediction) == "[[1. 0. 0.]]":
         output = "Araba ile ";
-    return render_template("OkulArabaIndex.html", prediction_text = "Girdiğiniz verilere göre  {} Gidersiniz".format(output));
+    return render_template("index.htm", prediction_text = "Girdiğiniz verilere göre  {} Gidersiniz".format(output));
 
 @app.route("/OkulKutuphanesiPredict", methods = ['POST'])
 def OkulKutuphanesiPredict():
@@ -103,7 +71,7 @@ def OkulKutuphanesiPredict():
         output = "Key Stage 1";
     if str(prediction) == "[[0. 1. 0.]]":
         output = "Key Stage 2";
-    return render_template("OkulKutuphanesi.html", prediction_text = "Size {} ".format(output) + "Öneriyoruz");
+    return render_template("index.htm", prediction_text = "Size {} ".format(output) + "Öneriyoruz");
 
 @app.route("/predictTitanik", methods = ['POST'])
 def predictTitanik():
@@ -117,7 +85,7 @@ def predictTitanik():
         output = "Hayatda Kalacaksınız";
     if str(prediction) == "[0.]":
         output = "Öleceksiniz";
-    return render_template("Titanik.html", prediction_text = "{}".format(output) + "");
+    return render_template("index.htm", prediction_text = "{}".format(output) + "");
 
 @app.route("/SmartClassroom", methods = ['POST'])
 def SmartClassroom():
