@@ -11,73 +11,105 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
     <title>Tasarım</title>
 
 </head>
+<style>
+    body{
+        background-image: url(resim/game-4486943_1280.png);
+          width: 100%;
+        height: 300%;
 
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    }
+    </style>
 <body>
+    
     <div class="container mt-2">
-        <div class="alert alert-success container text-center">
-            <p id="TextDeger" style="margin: 0;padding:0">
-                {{ prediction_text }}
-            </p>
+        <div class="alert alert-success container text-center" style="background-color: transparent ;border: 0px">
+            <h2 id="TextDeger" style="margin: 0;padding:0">
+                Akıllı Oyunlar
+            </h2>
         </div>
     </div>
     <div class="container mt-2">
-        <div class="row" style="height: 250px;">
+        <div class="row" style="height: 200px;">
             <div class="col-md-3 mt-2">
-                <button class="metrobtn btn1 w-100 h-100" data-toggle="modal" data-target="#OkulKutuphanesi">
+                <div class="wrap">
+                <button class="buttonwrp" data-toggle="modal" data-target="#OkulKutuphanesi">
                     Okul Kütüphanesi
                 </button>
             </div>
+                </div>
             <div class="col-md-3 mt-2">
-                <button class="metrobtn btn2 w-100 h-100" data-toggle="modal" data-target="#OkulAracSecme">
+                <div class="wrap" >
+                <button class="buttonwrp" data-toggle="modal" data-target="#OkulAracSecme">
                     Okul Araç Seçme
                 </button>
             </div>
+                </div>
             <div class="col-md-3 mt-2">
-                <button class="metrobtn btn1 w-100 h-100" data-toggle="modal" data-target="#Titanik">
+                <div class="wrap">
+                <button class="buttonwrp" data-toggle="modal" data-target="#Titanik">
                     Titanik
                 </button>
             </div>
+                </div>
             <div class="col-md-3 mt-2">
-                <button type="button" class="metrobtn btn2 w-100 h-100" data-toggle="modal"
-                    data-target="#BeniMutluEt">
+                <div class="wrap">
+                <button class="buttonwrp" data-toggle="modal" data-target="#BeniMutluEt">
                     Beni Mutlu Et
                 </button>
             </div>
+                </div>
         </div>
-        <div class="row" style="height: 250px;">
+        <br>
+            <div class="row" style="height: 250px;">
             <div class="col-md-3 mt-2">
-                <button class="metrobtn btn1 w-100 h-100" data-toggle="modal" data-target="#SmartClassRoom">
+                <div class="wrap">
+                <button class="buttonwrp" data-toggle="modal" data-target="#SmartClassRoom">
                     Akıllı Sınıf
                 </button>
             </div>
+                </div>
             <div class="col-md-3 mt-2">
-                <button class="metrobtn btn2 w-100 h-100" data-toggle="modal" data-target="#SortingHat">
+                <div class="wrap">
+                <button  class="buttonwrp" data-toggle="modal" data-target="#SortingHat">
                     Seçmen Şapka
                 </button>
             </div>
+                </div>
             <div class="col-md-3 mt-2">
-                <button class="metrobtn btn1 w-100 h-100" data-toggle="modal" data-target="#NewspaperShelves">
+                <div class="wrap">
+                <button  class="buttonwrp" data-toggle="modal" data-target="#NewspaperShelves">
                     Gazete Manşeti Bulma
                 </button>
             </div>
+                </div>
             <div class="col-md-3 mt-2">
-                <button class="metrobtn btn2 w-100 h-100" data-toggle="modal" data-target="#TouristinInfo">
+                <div class="wrap">
+                <button class="buttonwrp" data-toggle="modal" data-target="#TouristinInfo">
                     Gezilecek Yer Önermek Button.
                 </button>
             </div>
+                </div>
         </div>
     </div>
     <div>
         <div class="modal fade" id="OkulKutuphanesi" tabindex="-1" role="dialog" aria-labelledby="OkulKutuphanesiLabel"
             aria-hidden="true">
+           
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="animate__animated animate__wobble modal-content">
                     <div class="modal-header">
-                        <h5 class="text-center">Hangi Kitap Okumak İstersin</h5>
+                        <h5 class="text-center">Hangi Kitabı Okumak İstersin ?</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -89,23 +121,23 @@
                                     <div class="form-group">
                                         <label class="control-label">Sayfa</label>
                                         <input class="form-control" type="text" name="Sayfa" required="required"
-                                            placeholder="Sayfa...." />
+                                            placeholder="Sayfa..." />
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label">Satır</label>
                                         <input class="form-control" type="text" name="Satır" required="required"
-                                            placeholder="Satır...." />
+                                            placeholder="Satır..." />
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label">Resim Sayisi</label>
+                                        <label class="control-label">Resim Sayısı</label>
                                         <input class="form-control" type="text" name="Resim Sayisi" required="required"
-                                            placeholder="Resim Sayisi...." />
+                                            placeholder="Resim Sayisi..." />
                                     </div>
-                                    <br><br>
-                                    <div style="float: right;">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Predict</button>
+                                    <br>
+                                    <div style="margin-bottom: 15px">
+                                        <button style="float: left" type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Kapat</button>
+                                        <button style="float: right" type="submit" class="btn btn-primary">Kitap Bul</button>
                                     </div>
                                 </form>
                             </div>
@@ -117,7 +149,7 @@
         <div class="modal fade" id="OkulAracSecme" tabindex="-1" role="dialog" aria-labelledby="AracSecmeLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="animate__animated animate__tada modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="AracSecmeLabel">Hangi Araç ile Yolculuk Yapacaksınız Tahmini.</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -127,23 +159,24 @@
                     <div class="container pt-3 centered carousel-inner">
                         <form action="{{ url_for('OkulAracSecme') }}" method="post">
                             <div class="form-group">
-                                <label class="control-label">Kardeş Sayısı:</label>
+                                <label class="control-label">Kardeş Sayısı</label>
                                 <input class="form-control" type="text" id="Kardes_sayisi" name="Kardeş Sayısı:"
-                                    required="required" placeholder="Kardes Sayisi" />
+                                    required="required" placeholder="Kardes Sayisi..." />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Yaş</label>
                                 <input class="form-control" id="Yas" type="text" name="Yaş:" required="required"
-                                    placeholder="Yas" />
+                                    placeholder="Yas..." />
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Yol</label>
                                 <input class="form-control" id="Yol" type="text" name="Yol:" required="required"
                                     placeholder="Yol..." />
                             </div>
-                            <div style="float:right;">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Test</button>
+                            <br>
+                            <div style="margin-bottom: 15px">
+                                <button style="float: left" type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                <button style="float: right" type="submit" class="btn btn-primary">Tahmin Et</button>
                             </div>
                             <br><br>
                         </form>
@@ -154,7 +187,7 @@
         <div class="modal fade" id="Titanik" tabindex="-1" role="dialog" aria-labelledby="TitanikLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="animate__animated animate__heartBeat modal-content">
                     <div class="modal-header">
                         <h5 class="text-center mt-1">Titanikte Hayatta Kalma Tahmini Yapacaksın.</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -167,52 +200,52 @@
                                 <form action="{{ url_for('predictTitanik') }}" method="post">
                                     <div class="container">
                                         <div class="form-group">
-                                            <label class="control-label">Bilet Sinifi: </label><br>
+                                            <label class="control-label">Bilet Sınıfı</label><br>
                                             <select name="Bilet_Sinifi" class="form-control">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
+                                                <option value="1">1. Sınıf</option>
+                                                <option value="2">2. Sınıf</option>
+                                                <option value="3">3. Sınıf</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label">Cinsiyet : </label><br>
+                                            <label class="control-label">Cinsiyet</label><br>
                                             <select name="Cinsiyet" class="form-control">
-                                                <option value="0">Female</option>
-                                                <option value="1">Male</option>
+                                                <option value="0">Kadın</option>
+                                                <option value="1">Erkek</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Yaş</label>
                                             <input class="form-control" type="text" name="Yaş:" required="required"
-                                                placeholder="Yaş...." />
-                                        </div>
-                                        <div class="form-group>
-                                        <label class=" control-label">Kardeş Sayısı:</label>
-                                            <input class="form-control" type="text" name="Kardeş Sayısı:"
-                                                required="required" placeholder="Çocuk Sayisi...." />
+                                                placeholder="Yaş..." />
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label">Çocuk Sayısı:</label>
+                                        <label class=" control-label">Kardeş Sayısı</label>
+                                            <input class="form-control" type="text" name="Kardeş Sayısı:"
+                                                required="required" placeholder="Kardeş Sayısı..." />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Çocuk Sayısı</label>
                                             <input class="form-control" type="text" name="Çocuk Sayısı:"
-                                                required="required" placeholder="Çocuk Sayisi...." />
+                                                required="required" placeholder="Çocuk Sayısı..." />
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Ücret</label>
                                             <input class="form-control" type="text" name="Ücret" required="required"
-                                                placeholder="Ücret......" />
+                                                placeholder="Ücret..." />
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label">Cinsiyet : </label><br>
+                                            <label class="control-label">Varış Şehri</label><br>
                                             <select name="Bilet" class="form-control">
                                                 <option value="0">Cherbourg</option>
                                                 <option value="1">Queenstown</option>
                                                 <option value="2">Southampton</option>
                                             </select>
                                         </div>
-                                        <div style="float:right;">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Test</button>
+                                        <div style="margin-bottom: 40px;margin-top: 20px">
+                                            <button style="float: left" type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Kapat</button>
+                                            <button style="float: right;margin-bottom: 30px"type="submit" class="btn btn-primary">Onayla</button>
                                         </div>
                                 </form>
                             </div>
@@ -227,9 +260,9 @@
             <div class="modal fade" id="BeniMutluEt" tabindex="-1" role="dialog" aria-labelledby="BeniMutluEtLabel"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="animate__animated animate__backInLeft modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="BeniMutluEtLabel">Yorum Yazarak Beni Mutlu Et</h5>
+                            <h5  class="modal-title" id="BeniMutluEtLabel">Yorum Yazarak Beni Mutlu Et</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -238,26 +271,26 @@
                             <form id="predictBeniMutluEt">
                                 <div class="form-group ">
                                     <textarea class="form-control form-control-lg" cols="65" rows="2"
-                                        placeholder="Yorumunuzu Giriniz Ve Beni mutlu Ediniz" id="predict"
+                                        placeholder="Yorumunuzu Giriniz ve Beni mutlu Ediniz" id="predict"
                                         name="predict"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <div class="modal-footer">
-                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Test</button>
+                                
+                                    <div >
+                                        <button style="float: left" type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Kapat</button>
+                                        <button style="float: right" type="submit" class="btn btn-primary">Yorumu Onayla</button>
                                     </div>
                             </form>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
         </div>
-        <div>
+            <div>
             <div class="modal fade" id="SmartClassRoom" tabindex="-1" role="dialog"
                 aria-labelledby="SmartClassRoomEtLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="animate__animated animate__rotateInUpLeft modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="SmartClassRoomLabel">Sınıfta Fanı ve Lamba İşlemleri için Bilgi
                                 Girin</h5>
@@ -272,14 +305,14 @@
                                         placeholder="Sınıftaki İstekleri Yazınız" id="predict"
                                         name="predict"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <div class="modal-footer">
-                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Test</button>
+                                
+                                    <div>
+                                        <button style="float: left" type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Kapat</button>
+                                        <button style="float: right" type="submit" class="btn btn-primary">Onayla</button>
                                     </div>
                             </form>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -289,7 +322,7 @@
             <div class="modal fade" id="SortingHat" tabindex="-1" role="dialog" aria-labelledby="SortingHatLabel"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="animate__animated animate__zoomInUp modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="SortingHatLabel">Kişisel Bilgi Girin. Grup Belirlensin.</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -303,14 +336,14 @@
                                         placeholder="Kişisel Bilgilerinizi Girin" id="predict"
                                         name="predict"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <div class="modal-footer">
-                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Test</button>
+                                
+                                    <div >
+                                        <button style="float: left" type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Kapat</button>
+                                        <button style="float: right" type="submit" class="btn btn-primary">Grup Belirle</button>
                                     </div>
                             </form>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -320,9 +353,9 @@
             <div class="modal fade" id="NewspaperShelves" tabindex="-1" role="dialog"
                 aria-labelledby="NewspaperShelvesLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="animate__animated animate__shakeY modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="NewspaperShelvesLabel">Gazete Manteş Bilgilerini Girin.</h5>
+                            <h5 class="modal-title" id="NewspaperShelvesLabel">Gazete Manşet Bilgilerini Girin.</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -331,16 +364,16 @@
                             <form id="predictNewspaperShelves">
                                 <div class="form-group ">
                                     <textarea class="form-control form-control-lg" cols="65" rows="2"
-                                        placeholder="Gazete Manteş Girin" id="predict" name="predict"></textarea>
+                                        placeholder="Gazete Manşeti Girin" id="predict" name="predict"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <div class="modal-footer">
-                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Test</button>
+                                
+                                    <div> 
+                                        <button style="float: left" type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Kapat</button>
+                                        <button style="float: right" type="submit" class="btn btn-primary">Manşet Bul</button>
                                     </div>
                             </form>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -350,7 +383,7 @@
             <div class="modal fade" id="TouristinInfo" tabindex="-1" role="dialog" aria-labelledby="TouristinInfoLabel"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                    <div class="animate__animated animate__rubberBand modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="TouristinInfoLabel">Gezmek istediğiniz yerin bilgilerini Girin.
                             </h5>
@@ -362,24 +395,24 @@
                             <form id="predictTouristinInfo">
                                 <div class="form-group ">
                                     <textarea class="form-control form-control-lg" cols="65" rows="2"
-                                        placeholder="Gezmek istediğiniz bilgileri girin." id="predict"
+                                        placeholder="Gezmek istediğiniz yerin bilgileri girin." id="predict"
                                         name="predict"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <div class="modal-footer">
-                                        <button type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
-                                        <button type="submit" class="btn btn-primary">Test</button>
+                                
+                                    <div >
+                                        <button style="float: left" type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                                            data-dismiss="modal">Kapat</button>
+                                        <button style="float: right" type="submit" class="btn btn-primary">Öneri Al</button>
                                     </div>
                             </form>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="footer-copyright text-center py-3">
-            <p class="text-center mt-2">
+        <div style="margin-bottom: 1px;margin-top: 200px" class="footer-copyright text-center py-3">
+            <p style="color: azure ;al" class="text-center mt-2">
                 ©2020 C# FixedBugs. All contents are copyright of their authors.
             </p>
         </div>
