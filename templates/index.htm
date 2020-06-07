@@ -10,90 +10,74 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
     <title>Tasarım</title>
 
 </head>
-<style>
-    body {
-        background-image: url(resim/game-4486943_1280.png);
-        width: 100%;
-        height: 300%;
 
-        /* Center and scale the image nicely */
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-</style>
-
-<body>
-    <div class="container mt-2">
-        <div class="alert alert-success container text-center" style="background-color: transparent ;border: 0px">
-            <h2 id="TextDeger" style="margin: 0;padding:0">
-                Akıllı Oyunlar
-            </h2>
-        </div>
-    </div>
-    <div class="container mt-2">
-        <div class="row" style="height: 200px;">
-            <div class="col-md-3 mt-2">
+<body style="background-image: url(/static/resim/game-4486943_1280.png)">
+    <div class="container">
+        <p id="TextDeger" class="text-center font-weight-bold" style="font-size:20px">
+            {{ prediction_text }}
+        </p>
+        <div class="row" style="margin-top: 100px;">
+            <div class="col-md-3 ">
                 <div class="wrap">
                     <button class="buttonwrp" data-toggle="modal" data-target="#OkulKutuphanesi">
-                        Okul Kütüphanesi
+                        Okul Kütüphanesi Oyunu.
                     </button>
                 </div>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3 ">
                 <div class="wrap">
                     <button class="buttonwrp" data-toggle="modal" data-target="#OkulAracSecme">
-                        Okul Araç Seçme
+                        Okul Araç Seçme Oyunu.
                     </button>
                 </div>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3 ">
                 <div class="wrap">
                     <button class="buttonwrp" data-toggle="modal" data-target="#Titanik">
-                        Titanik
+                        Titanik Oyunu.
                     </button>
                 </div>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3 ">
                 <div class="wrap">
                     <button class="buttonwrp" data-toggle="modal" data-target="#BeniMutluEt">
-                        Beni Mutlu Et
+                        Beni Mutlu Et Oyunu.
                     </button>
                 </div>
             </div>
         </div>
         <br>
         <div class="row" style="height: 250px;">
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3 ">
                 <div class="wrap">
                     <button class="buttonwrp" data-toggle="modal" data-target="#SmartClassRoom">
-                        Akıllı Sınıf
+                        Akıllı Sınıf Oyunu.
                     </button>
                 </div>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3 ">
                 <div class="wrap">
                     <button class="buttonwrp" data-toggle="modal" data-target="#SortingHat">
-                        Seçmen Şapka
+                        Seçmen Şapka Oyunu.
                     </button>
                 </div>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3 ">
                 <div class="wrap">
                     <button class="buttonwrp" data-toggle="modal" data-target="#NewspaperShelves">
-                        Gazete Manşeti Bulma
+                        Gazete Manşeti Bulma Oyunu.
                     </button>
                 </div>
             </div>
-            <div class="col-md-3 mt-2">
+            <div class="col-md-3 ">
                 <div class="wrap">
                     <button class="buttonwrp" data-toggle="modal" data-target="#TouristinInfo">
-                        Gezilecek Yer Önermek Button.
+                        Gezilecek Yer Bul.
                     </button>
                 </div>
             </div>
@@ -315,7 +299,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="SortingHat" tabindex="-1" role="dialog" aria-labelledby="SortingHatLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -333,9 +316,8 @@
                             <textarea class="form-control form-control-lg" cols="65" rows="2"
                                 placeholder="Kişisel Bilgilerinizi Girin" id="predict" name="predict"></textarea>
                         </div>
-
                         <div>
-                            <button style="float: left" type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                            <button style="float: left" type="button" id="predictSortingHat" class="btn btn-secondary"
                                 data-dismiss="modal">Kapat</button>
                             <button style="float: right" type="submit" class="btn btn-primary">Grup
                                 Belirle</button>
@@ -346,7 +328,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="NewspaperShelves" tabindex="-1" role="dialog" aria-labelledby="NewspaperShelvesLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -377,7 +358,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="TouristinInfo" tabindex="-1" role="dialog" aria-labelledby="TouristinInfoLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -411,8 +391,8 @@
         </div>
     </div>
 
-    <div style="margin-bottom: 1px;margin-top: 200px" class="footer-copyright text-center py-3">
-        <p style="color: azure ;" class="text-center mt-2">
+    <div class="footer-copyright text-center">
+        <p class="text-right" style="font-weight: 700; color:black;margin-top:10%">
             ©2020 C# FixedBugs. All contents are copyright of their authors.
         </p>
     </div>
@@ -566,7 +546,7 @@
                 }
             })
         })
-    
+
     </script>
 </body>
 

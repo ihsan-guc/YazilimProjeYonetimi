@@ -40,7 +40,7 @@ MakeMeHappyModel = pickle.load(open('MakeMeHappyModel.pkl', 'rb'))
 
 @app.route("/",methods=['GET', 'POST'])
 def Home():
-    return render_template("index.htm")
+    return render_template("index6.htm")
 
 @app.route("/OkulAracSecme", methods = ['POST'])
 def OkulAracSecme():

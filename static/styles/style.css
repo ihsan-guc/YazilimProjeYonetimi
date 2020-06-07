@@ -1,45 +1,10 @@
-.metrobtn{
-    border: 1px solid #3498db;
-    background:none;
-    cursor: pointer;
-    transition: 0.8s;
-    position: relative;
-    overflow: hidden;
-    font-weight: 700;
-    font-size: 19px;
-}
-.metrobtn.btn1,.btn2{
-    color: #3498db;
-}
-.metrobtn.btn1:hover,.btn2:hover{
-    color:#fff
-}
-.metrobtn::before{
-    content: "";
-    position:absolute;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    z-index: -1;
-    background-color: #000;
-    background-repeat:cover ;
-    transition: 0.9s;
-}
 
-.metrobtn.btn1::before{
-    top: 0;
-    border-radius: 0 0 50% 50%;
+body{
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
-
-.metrobtn.btn2::before{
-    bottom: 0;
-    border-radius: 50% 50% 0 0 ;
-}
-.metrobtn.btn1:hover::before,.metrobtn.btn2:hover::before{
-    height: 180%;
-}
-
-
 
 .wrap {
   height: 100%;
@@ -69,8 +34,7 @@
   padding: 10px;
   }
 
-buttonwrp::before {
-content: '';
+.buttonwrp::before {
   border-radius: 1000px;
   min-width: calc(300px + 12px);
   min-height: calc(60px + 12px);
@@ -89,11 +53,11 @@ content: '';
   transform: translateY(-6px);
 }
 
-buttonwrp:hover::before, buttonwrp:focus::before {
+.buttonwrp:hover::before, .buttonwrp:focus::before {
   opacity: 1;
 }
 
-buttonwrp::after {
+.buttonwrp::after {
   content: '';
   width: 30px; height: 30px;
   border-radius: 100%;
@@ -106,7 +70,7 @@ buttonwrp::after {
   animation: ring 1.5s infinite;
 }
 
-buttonwrp:hover::after, buttonwrp:focus::after {
+.buttonwrp:hover::after, .buttonwrp:focus::after {
   animation: none;
   display: none;
 }
