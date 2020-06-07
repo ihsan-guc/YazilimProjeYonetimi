@@ -374,12 +374,12 @@
                     <form id="predictTouristinInfo">
                         <div class="form-group ">
                             <textarea class="form-control form-control-lg" cols="65" rows="2"
-                                placeholder="Gezmek istediğiniz yerin bilgileri girin." id="predict"
-                                name="predict"></textarea>
+                                placeholder="Gezmek istediğiniz yerin bilgileri girin." id="predictTouristInfo"
+                                name="predictTouristInfo"></textarea>
                         </div>
 
                         <div>
-                            <button style="float: left" type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                            <button style="float: left" type="button" class="btn btn-secondary"
                                 data-dismiss="modal">Kapat</button>
                             <button style="float: right" type="submit" class="btn btn-primary">Öneri
                                 Al</button>
@@ -511,7 +511,7 @@
                 url: "http://localhost:4500/nodeTouristinInfo",
                 contentType: "application/json",
                 data: JSON.stringify({
-                    "predict": $("#predict").val(),
+                    "predict": $("#predictTouristInfo").val(),
                 }),
                 type: "POST",
                 dataType: "json",
