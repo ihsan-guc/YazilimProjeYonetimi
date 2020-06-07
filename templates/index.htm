@@ -285,7 +285,7 @@
                     <form id="predictSmartClassRoom">
                         <div class="form-group ">
                             <textarea class="form-control form-control-lg" cols="65" rows="2"
-                                placeholder="Sınıftaki İstekleri Yazınız" id="predict" name="predict"></textarea>
+                                placeholder="Sınıftaki İstekleri Yazınız" id="predictSmartClass" name="predictSmartClass"></textarea>
                         </div>
 
                         <div>
@@ -314,10 +314,10 @@
                     <form id="predictSortingHat">
                         <div class="form-group ">
                             <textarea class="form-control form-control-lg" cols="65" rows="2"
-                                placeholder="Kişisel Bilgilerinizi Girin" id="predict" name="predict"></textarea>
+                                placeholder="Kişisel Bilgilerinizi Girin" id="predictSorting" name="predictSorting"></textarea>
                         </div>
                         <div>
-                            <button style="float: left" type="button" id="predictSortingHat" class="btn btn-secondary"
+                            <button style="float: left" type="button" class="btn btn-secondary"
                                 data-dismiss="modal">Kapat</button>
                             <button style="float: right" type="submit" class="btn btn-primary">Grup
                                 Belirle</button>
@@ -343,11 +343,11 @@
                     <form id="predictNewspaperShelves">
                         <div class="form-group ">
                             <textarea class="form-control form-control-lg" cols="65" rows="2"
-                                placeholder="Gazete Manşeti Girin" id="predict" name="predict"></textarea>
+                                placeholder="Gazete Manşeti Girin" id="predictHeadLines" name="predictHeadLines"></textarea>
                         </div>
 
                         <div>
-                            <button style="float: left" type="button" id="BeniMutluEtbtn" class="btn btn-secondary"
+                            <button style="float: left" type="button" class="btn btn-secondary"
                                 data-dismiss="modal">Kapat</button>
                             <button style="float: right" type="submit" class="btn btn-primary">Manşet
                                 Bul</button>
@@ -411,12 +411,10 @@
                     if (msq[0] === 0) {
                         $('#TextDeger').text("Ben üzüldüm şimdi")
                         $('#BeniMutluEt').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 1) {
                         $('#TextDeger').text("Ben Mutluyum Şimdi")
                         $('#BeniMutluEt').modal('hide')
-                        $('#predict').val("")
                     }
                 }
             })
@@ -428,7 +426,7 @@
                 url: "http://localhost:4500/nodepredict",
                 contentType: "application/json",
                 data: JSON.stringify({
-                    "predict": $("#predict").val(),
+                    "predict": $("#predictSmartClass").val(),
                 }),
                 type: "POST",
                 dataType: "json",
@@ -436,22 +434,18 @@
                     if (msq[0] === 1) {
                         $('#TextDeger').text("Fanı Açın")
                         $('#SmartClassRoom').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 2) {
                         $('#TextDeger').text("Fanı Kapat")
                         $('#SmartClassRoom').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 3) {
                         $('#TextDeger').text("Lambayı Açın")
                         $('#SmartClassRoom').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 4) {
                         $('#TextDeger').text("Lambayı Kapatın")
                         $('#SmartClassRoom').modal('hide')
-                        $('#predict').val("")
                     }
                 }
             })
@@ -463,7 +457,7 @@
                 url: "http://localhost:4500/nodeSortingHat",
                 contentType: "application/json",
                 data: JSON.stringify({
-                    "predict": $("#predict").val(),
+                    "predict": $("#predictSorting").val(),
                 }),
                 type: "POST",
                 dataType: "json",
@@ -471,22 +465,18 @@
                     if (msq[0] === 0) {
                         $('#TextDeger').text("Gryffindor Seçildiniz.")
                         $('#SortingHat').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 1) {
                         $('#TextDeger').text("Slytherin Seçildiniz.")
                         $('#SortingHat').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 2) {
                         $('#TextDeger').text("Hufflepuff Seçildiniz.")
                         $('#SortingHat').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 3) {
                         $('#TextDeger').text("Ravenclaw Seçildiniz.")
                         $('#SortingHat').modal('hide')
-                        $('#predict').val("")
                     }
                 }
             })
@@ -498,7 +488,7 @@
                 url: "http://localhost:4500/nodeNewspaperShelves",
                 contentType: "application/json",
                 data: JSON.stringify({
-                    "predict": $("#predict").val(),
+                    "predict": $("#predictHeadLines").val(),
                 }),
                 type: "POST",
                 dataType: "json",
@@ -506,12 +496,10 @@
                     if (msq[0] === 1) {
                         $('#TextDeger').text("Atığınız Manset Ekonmi ile ilgili")
                         $('#NewspaperShelves').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 2) {
                         $('#TextDeger').text("Atığınız Manset Sağlık ile ilgili")
                         $('#NewspaperShelves').modal('hide')
-                        $('#predict').val("")
                     }
                 }
             })
@@ -531,17 +519,14 @@
                     if (msq[0] === 1) {
                         $('#TextDeger').text("Müze gidebilirisiniz.")
                         $('#TouristinInfo').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 2) {
                         $('#TextDeger').text("Akvaryuma gidebilirisiniz.")
                         $('#TouristinInfo').modal('hide')
-                        $('#predict').val("")
                     }
                     if (msq[0] === 3) {
                         $('#TextDeger').text("Galery gidebilirisiniz.")
                         $('#TouristinInfo').modal('hide')
-                        $('#predict').val("")
                     }
                 }
             })
